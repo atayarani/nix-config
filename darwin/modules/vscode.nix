@@ -18,7 +18,6 @@ in {
     };
   };
 
-  # visit the official docs at: https://espanso.org/docs/
   config = mkIf cfg.enable {
     home-manager.users.${cfg.osUser} = {
       programs.vscode = {

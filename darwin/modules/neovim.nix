@@ -14,7 +14,7 @@ in {
 
   config = mkIf cfg.enable {
     home-manager.users.${cfg.osUser} = {
-      neovim = {
+      programs.neovim = {
         enable = cfg.enable;
         viAlias = true;
         vimAlias = true;

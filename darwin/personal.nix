@@ -22,6 +22,7 @@
     user = "alitayarani";
   };
   omp = import ./shared/oh-my-posh.nix;
+  xdg_data_dir = "/Users/alitayarani/.local/share";
 in {
   imports = import ./modules;
   nixpkgs.config.allowUnfree = true;
@@ -44,6 +45,11 @@ in {
     plugins = {
       fnm = true;
     };
+  };
+
+  zsh = {
+    enable = true;
+    osUser = hostVars.user;
   };
 
   oh-my-posh = {
@@ -162,14 +168,21 @@ in {
     enable = true;
   };
 
+  nvim = {
+    enable = true;
+    osUser = hostVars.user;
+  };
+
   home-manager.users.${hostVars.user} = {
     home = {
       sessionVariables = {
         PATH = "$HOME/.nix-profile/bin:/run/current-system/sw/bin/:$HOME/.config/zsh/scripts:/opt/homebrew/bin:$PATH";
+        XDG_RUNTIME_DIR = "/run/user/$UID";
       };
       stateVersion = "23.05";
       shellAliases = {
         xdg-ninja = "nix run github:b3nj5m1n/xdg-ninja";
+        wget = "wget --hsts-file=\"$XDG_DATA_HOME/wget-hsts\"";
       };
       packages = with pkgs; [];
     };
@@ -187,7 +200,12 @@ in {
         enable = true;
         goPath = ".local/share/go"; # @TODO: There should be an xdg var here
       };
-      gpg.enable = true;
+      gpg = {
+        enable = true;
+        homedir = "${xdg_data_dir}/gnupg"; # @TODO: There should be an xdg var here
+        mutableKeys = false;
+        mutableTrust = false;
+      };
       jq.enable = true;
       pandoc.enable = true;
       ssh.enable = true;
@@ -196,18 +214,6 @@ in {
         enable = true;
         enableZshIntegration = true;
       };
-      # zsh = {
-      #   enable = true;
-      #   enableAutosuggestions = true;
-      #   enableCompletion = true;
-      #   #syntaxHighlighting = { enable = true; };
-      #   #zsh-abbr = { enable = true; };
-
-      #   initExtra = " eval \"$(fnm env --use-on-cd)\" ";
-
-      #   dotDir = ".config/zsh";
-      #   zplug.enable = true;
-      # };
     };
 
     xdg.enable = true;

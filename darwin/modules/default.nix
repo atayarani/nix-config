@@ -22,4 +22,5 @@
   ./vscode.nix
   ./zsh.nix
   ./zplug.nix
+  ./neovim.nix
 ]

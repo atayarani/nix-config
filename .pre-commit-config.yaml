@@ -1,0 +1,11 @@
+repos:
+  - repo: https://github.com/kamadorueda/alejandra
+    rev: 3.0.0
+    hooks:
+      - id: alejandra-system # Requires Alejandra to be previously installed in the system
+  - repo: https://github.com/jumanjihouse/pre-commit-hooks
+    rev: 3.0.0
+    hooks:
+      - id: shellcheck
+        name: Shell check
+        # types: [shell]

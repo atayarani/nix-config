@@ -37,6 +37,7 @@ in {
   vscode = {
     enable = true;
     osUser = hostVars.user;
+    additionalPlugins = with legacy.vscode-extensions; [redhat.vscode-yaml];
   };
 
   zplug = {

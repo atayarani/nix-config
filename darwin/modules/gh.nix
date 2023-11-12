@@ -23,7 +23,7 @@ in {
         enable = cfg.enable;
         settings = {
           aliases = {co = "pr checkout";};
-          git_protocol = "https";
+          git_protocol = "ssh";
           editor = cfg.editor;
         };
       };

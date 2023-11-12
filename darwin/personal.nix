@@ -132,7 +132,10 @@ in {
       "1password-beta"
       "alacritty"
       "alfred"
+      "authy"
+      "caffeine"
       "flux"
+      "handbrake"
       "itch"
       "iterm2"
       "macupdater"
@@ -144,7 +147,6 @@ in {
       "tailscale"
       "zoom"
       "zotero"
-      "handbrake"
     ];
     masApps = {
       Infuse = 1136220934;
@@ -169,6 +171,7 @@ in {
       shellAliases = {
         xdg-ninja = "nix run github:b3nj5m1n/xdg-ninja";
       };
+      packages = with pkgs; [];
     };
 
     programs = {

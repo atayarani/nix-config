@@ -104,6 +104,7 @@ in {
       legacy.fnm
       legacy.chezmoi
       legacy.pre-commit
+      legacy.shellcheck
     ];
   };
 

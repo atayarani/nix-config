@@ -102,6 +102,7 @@ in {
       pkgs.alejandra
       legacy.fnm
       legacy.chezmoi
+      legacy.pre-commit
     ];
   };
 

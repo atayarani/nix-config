@@ -183,7 +183,10 @@ in {
         enable = true;
         enableZshIntegration = true;
       };
-      go.enable = true;
+      go = {
+        enable = true;
+        goPath = ".local/share/go"; # @TODO: There should be an xdg var here
+      };
       gpg.enable = true;
       jq.enable = true;
       pandoc.enable = true;
@@ -193,18 +196,18 @@ in {
         enable = true;
         enableZshIntegration = true;
       };
-      zsh = {
-        enable = true;
-        enableAutosuggestions = true;
-        enableCompletion = true;
-        #syntaxHighlighting = { enable = true; };
-        #zsh-abbr = { enable = true; };
+      # zsh = {
+      #   enable = true;
+      #   enableAutosuggestions = true;
+      #   enableCompletion = true;
+      #   #syntaxHighlighting = { enable = true; };
+      #   #zsh-abbr = { enable = true; };
 
-        initExtra = " eval \"$(fnm env --use-on-cd)\" ";
+      #   initExtra = " eval \"$(fnm env --use-on-cd)\" ";
 
-        dotDir = ".config/zsh";
-        zplug.enable = true;
-      };
+      #   dotDir = ".config/zsh";
+      #   zplug.enable = true;
+      # };
     };
 
     xdg.enable = true;

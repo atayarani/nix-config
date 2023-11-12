@@ -19,6 +19,7 @@
   ./oh-my-posh.nix
   ./python.nix
   ./tmux.nix
-  ./zplug.nix
   ./vscode.nix
+  ./zsh.nix
+  ./zplug.nix
 ]

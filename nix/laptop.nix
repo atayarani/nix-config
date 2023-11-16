@@ -18,10 +18,11 @@
     inherit (nixVars) editor user;
   };
 in {
-  git = {
-    enable = true;
-    osUser = hostVars.user;
-    userName = "ChronoSerrano";
-    userEmail = "619512+ChronoSerrano@users.noreply.github.com";
-  };
+  home = {};
+
+  programs.git = { 
+enable = true;
+  userName = "ChronoSerrano";
+  userEmail = "619512+ChronoSerrano@users.noreply.github.com";
+ };
 }

@@ -47,8 +47,8 @@
     # $ darwin-rebuild build --flake .#Alis-MacBook-Pro-2
 
     nix.settings.experimental-features = "nix-command flakes";
-    nix.settings.allowed-users = ["root" "alitayarani"];
-    nix.settings.trusted-users = ["root" "alitayarani"];
+    nix.settings.allowed-users = ["root" "alitayarani" "ali"];
+    nix.settings.trusted-users = ["root" "alitayarani" "ali"];
 
     darwinConfigurations = (
       import ./darwin {

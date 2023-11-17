@@ -21,7 +21,7 @@
     inherit (vars) editor user;
   };
 in {
-  pacman = home-manager.lib.homeManagerConfiguration {
+  Ali-victus = home-manager.lib.homeManagerConfiguration {
     inherit pkgs;
     extraSpecialArgs = {inherit inputs nixVars vars;};
     modules = [

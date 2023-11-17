@@ -56,5 +56,12 @@
         inherit inputs nixpkgs nixpkgs-unstable home-manager darwin vars agenix;
       }
     );
+
+    homeConfigurations = (
+      import ./nix {
+        inherit (nixpkgs) lib;
+        inherit inputs nixpkgs nixpkgs-unstable home-manager vars agenix;
+      }
+    );
   };
 }

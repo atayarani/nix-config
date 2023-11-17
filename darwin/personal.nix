@@ -24,7 +24,7 @@
   omp = import ./shared/oh-my-posh.nix;
   xdg_data_dir = "/Users/alitayarani/.local/share";
 in {
-  imports = import ./modules;
+  # imports = import ../modules ++ import ./modules;
   nixpkgs.config.allowUnfree = true;
 
   git = {

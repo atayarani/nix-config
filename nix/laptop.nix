@@ -10,8 +10,18 @@
   config,
   inputs,
   pkgs,
-  nixgl,
+  nixVars,
   vars,
   ...
 }: let
-in {}
+  hostVars = {
+    inherit (nixVars) editor user;
+  };
+in {
+  git = {
+    enable = true;
+    osUser = hostVars.user;
+    userName = "ChronoSerrano";
+    userEmail = "619512+ChronoSerrano@users.noreply.github.com";
+  };
+}

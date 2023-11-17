@@ -23,7 +23,7 @@
 in {
   pacman = home-manager.lib.homeManagerConfiguration {
     inherit pkgs;
-    extraSpecialArgs = {inherit inputs vars;};
+    extraSpecialArgs = {inherit inputs nixVars vars;};
     modules = [
       # Modules Used
       ./laptop.nix

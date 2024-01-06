@@ -9,12 +9,12 @@
   description = "Nix, NixOS and Nix Darwin System Flake Configuration";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-23.05"; # Stable Nix Packages (Default)
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11"; # Stable Nix Packages (Default)
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable"; # Unstable Nix Packages
 
     home-manager = {
       # User Environment Manager
-      url = "github:nix-community/home-manager/release-23.05";
+      url = "github:nix-community/home-manager/release-23.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -63,5 +63,22 @@
         inherit inputs nixpkgs nixpkgs-unstable home-manager vars agenix;
       }
     );
+
+    nixosConfigurations = let user = "ali"; system = "x86_64-linux"; in {
+nix03 = nixpkgs.lib.nixosSystem {
+inherit system;
+specialArgs = {inherit inputs;};
+modules = [ ./hosts/nixos/nix03/configuration.nix 
+          home-manager.nixosModules.home-manager {
+            home-manager = {
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              users.${user} = import ./modules/nixos/home-manager.nix;
+            };
+          }
+	  
+];
+};
+};
   };
 }

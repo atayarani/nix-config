@@ -9,12 +9,12 @@
   description = "Nix, NixOS and Nix Darwin System Flake Configuration";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-23.05"; # Stable Nix Packages (Default)
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11"; # Stable Nix Packages (Default)
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable"; # Unstable Nix Packages
 
     home-manager = {
       # User Environment Manager
-      url = "github:nix-community/home-manager/release-23.05";
+      url = "github:nix-community/home-manager/release-23.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -25,6 +25,13 @@
     };
 
     agenix.url = "github:ryantm/agenix";
+
+    nixvim = {
+      # If you are not running an unstable channel of nixpkgs, select the corresponding branch of nixvim.
+      url = "github:nix-community/nixvim/nixos-23.11";
+
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs @ {
@@ -34,6 +41,7 @@
     home-manager,
     darwin,
     agenix,
+    nixvim,
   }:
   # Function telling flake which inputs to use
   let
@@ -60,7 +68,7 @@
     homeConfigurations = (
       import ./nix {
         inherit (nixpkgs) lib;
-        inherit inputs nixpkgs nixpkgs-unstable home-manager vars agenix;
+        inherit inputs nixpkgs nixpkgs-unstable home-manager vars agenix nixvim;
       }
     );
   };

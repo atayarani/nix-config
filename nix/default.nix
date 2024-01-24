@@ -13,6 +13,7 @@
   nixpkgs,
   home-manager,
   vars,
+  nixvim,
   ...
 }: let
   system = "x86_64-linux"; # System Architecture
@@ -21,20 +22,23 @@
     inherit (vars) editor user;
   };
 in {
-  Ali-victus = home-manager.lib.homeManagerConfiguration {
+  victus = home-manager.lib.homeManagerConfiguration {
     inherit pkgs;
     extraSpecialArgs = {inherit inputs nixVars vars;};
+
     modules = [
       # Modules Used
       ./laptop.nix
-      {
-        home = {
-          username = "${vars.user}";
-          homeDirectory = "/home/${vars.user}";
-          packages = [pkgs.home-manager];
-          stateVersion = "23.05";
-        };
-      }
-    ] ++ (import ../modules);
+      ../modules/nix/home-manager.nix
+      nixvim.homeManagerModules.nixvim
+      # {
+      #   home = {
+      #     username = "${vars.user}";
+      #     homeDirectory = "/home/${vars.user}";
+      #     packages = [pkgs.home-manager];
+      #     stateVersion = "23.11";
+      #   };
+      # }
+    ]; # ++ (import ../modules/nix/home-manager.nix);
   };
 }

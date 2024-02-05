@@ -28,7 +28,7 @@ in {
             kamadorueda.alejandra
           ]
           ++ cfg.additionalPlugins;
-        mutableExtensionsDir = false;
+        # mutableExtensionsDir = true;
       };
 
       programs.zsh.zplug.plugins = [

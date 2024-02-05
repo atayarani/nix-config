@@ -19,4 +19,5 @@
   ./zsh.nix
   ./zplug.nix
   ./neovim.nix
+  ./git.nix
 ]

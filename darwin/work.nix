@@ -36,6 +36,8 @@ in {
     additionalPlugins = with legacy.vscode-extensions; [
       ms-python.python
       redhat.vscode-yaml
+      mechatroner.rainbow-csv
+      # charliermarsh.ruff
     ];
   };
 
@@ -92,6 +94,7 @@ in {
     };
     brews = [];
     casks = [
+      "alacritty"
     ];
     masApps = {
     };
@@ -117,6 +120,12 @@ in {
     osUser = hostVars.user;
   };
 
+  tmux = {
+    enable = true;
+    osUser = hostVars.user;
+    zplug = true;
+  };
+
   home-manager.users.${hostVars.user} = {pkgs, ...}: {
     home = {
       packages = with pkgs; [];
@@ -131,7 +140,26 @@ in {
     xdg = {enable = true;};
 
     programs = {
-      ssh = {enable = true;};
+      ssh = {
+        enable = true;
+        matchBlocks = {
+          "*" = {
+            forwardAgent = false;
+            compression = false;
+            # host = "*";
+            serverAliveCountMax = 3;
+            serverAliveInterval = 0;
+            # hashKnownHosts = false;
+            # userKnownHostsFile = "~/.ssh/known_hosts";
+          };
+        };
+      };
+
+      # HashKnownHosts no
+      # UserKnownHostsFile ~/.ssh/known_hosts
+      # ControlMaster no
+      # ControlPath ~/.ssh/master-%r@%n:%p
+      # ControlPersist no
       fzf = {
         enable = true;
         enableZshIntegration = true;

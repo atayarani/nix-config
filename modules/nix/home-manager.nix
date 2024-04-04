@@ -1,10 +1,14 @@
-{ config, pkgs, lib, nixvim, ... }:
-
-let
+{
+  config,
+  pkgs,
+  lib,
+  nixvim,
+  ...
+}: let
   user = "ali";
-  xdg_configHome  = "/home/${user}/.config";
-shared-programs = import ../shared/home-manager.nix { inherit config pkgs lib nixvim; };
-#shared-files = import ../shared/files.nix { inherit config pkgs; };
+  xdg_configHome = "/home/${user}/.config";
+  shared-programs = import ../shared/home-manager.nix {inherit config pkgs lib nixvim;};
+  #shared-files = import ../shared/files.nix { inherit config pkgs; };
 in {
   home = {
     enableNixpkgsReleaseCheck = false;
@@ -13,11 +17,10 @@ in {
     packages = pkgs.callPackage ./packages.nix {};
     #file = shared-files // import ./files.nix { inherit user pkgs; };
     stateVersion = "23.11";
-      sessionVariables = {
-        EDITOR = "nvim";
-      };
+    sessionVariables = {
+      EDITOR = "nvim";
+    };
   };
-
 
   programs = shared-programs;
 }

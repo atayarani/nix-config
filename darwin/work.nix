@@ -120,6 +120,12 @@ in {
     osUser = hostVars.user;
   };
 
+  tmux = {
+    enable = true;
+    osUser = hostVars.user;
+    zplug = true;
+  };
+
   home-manager.users.${hostVars.user} = {pkgs, ...}: {
     home = {
       packages = with pkgs; [];

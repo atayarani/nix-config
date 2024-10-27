@@ -126,7 +126,7 @@ in {
 #     '';
 #   };
 
-#   services = {nix-daemon = {enable = true;};};
+   services = {nix-daemon = {enable = true;};};
 
 #   homebrew = {
 #     # Homebrew Package Manager

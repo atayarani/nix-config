@@ -47,6 +47,7 @@ in {
   Alis-MacBook-Pro = darwin.lib.darwinSystem {
     inherit system;
     specialArgs = {inherit inputs darwinVars legacy agenix;};
-    modules = [./personal.nix] ++ commonModules;
+    #modules = [./personal.nix] ++ commonModules;
+    modules = [./personal.nix];
   };
 }

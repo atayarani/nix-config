@@ -27,12 +27,12 @@ in {
 #   # imports = import ../modules ++ import ./modules;
 #   nixpkgs.config.allowUnfree = true;
 
-#   git = {
-#     enable = true;
-#     osUser = hostVars.user;
-#     userName = "ChronoSerrano";
-#     userEmail = "619512+ChronoSerrano@users.noreply.github.com";
-#   };
+   #git = {
+   #  enable = true;
+   #  osUser = hostVars.user;
+   #  userName = "atayarani";
+   #  userEmail = "619512+atayarani@users.noreply.github.com";
+   #};
 
 #   vscode = {
 #     enable = true;
@@ -95,18 +95,18 @@ in {
 #     shell = pkgs.zsh; # Default Shell
 #   };
 
-#   environment = {
-#     shells = with pkgs; [zsh]; # Default Shell
-#     variables = {};
-#     systemPackages = [
-#       # System-Wide Packages
-#       pkgs.alejandra
+   environment = {
+     shells = with pkgs; [zsh]; # Default Shell
+     variables = {};
+     systemPackages = [
+       # System-Wide Packages
+       pkgs.alejandra
 #       legacy.fnm
-#       legacy.chezmoi
+       legacy.chezmoi
 #       legacy.pre-commit
 #       legacy.shellcheck
-#     ];
-#   };
+     ];
+   };
 
 #   fonts = {
 #     fontDir.enable = true;
@@ -119,26 +119,26 @@ in {
 #     ];
 #   };
 
-#   nix = {
-#     package = pkgs.nix;
-#     extraOptions = ''
-#       experimental-features = nix-command flakes
-#     '';
-#   };
+   nix = {
+     package = pkgs.nix;
+     extraOptions = ''
+       experimental-features = nix-command flakes
+     '';
+   };
 
    services = {nix-daemon = {enable = true;};};
 
-#   homebrew = {
+   homebrew = {
 #     # Homebrew Package Manager
-#     enable = true;
-#     onActivation = {
-#       autoUpdate = false;
-#       upgrade = false;
-#       cleanup = "zap";
-#     };
+     enable = true;
+     onActivation = {
+       autoUpdate = false;
+       upgrade = false;
+       cleanup = "zap";
+     };
 #     brews = [];
-#     casks = [
-#       "1password-beta"
+     casks = [
+       "1password"
 #       "alacritty"
 #       "alfred"
 #       "authy"
@@ -157,15 +157,15 @@ in {
 #       "zoom"
 #       "zotero"
 #       "daisydisk"
-#     ];
-#     masApps = {
-#       Infuse = 1136220934;
-#       LanScan = 472226235;
-#     };
+     ];
+     masApps = {
+       Infuse = 1136220934;
+       LanScan = 472226235;
+     };
 #     taps = [
 #       "homebrew/cask-versions"
 #     ];
-#   };
+   };
 
 #   gh = {
 #     inherit (hostVars) user editor;

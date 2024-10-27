@@ -1,5 +1,7 @@
 # Darwin
 ---
+1) `curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install`
+2) `nix run nix-darwin -- switch --flake ~/.config/nix-darwin`
 # Nix
 ---
 > Currently the only host available is `victus`

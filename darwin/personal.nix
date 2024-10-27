@@ -139,6 +139,7 @@ in {
 #     brews = [];
      casks = [
        "1password"
+       "arc"
 #       "alacritty"
 #       "alfred"
 #       "authy"
@@ -157,6 +158,7 @@ in {
 #       "zoom"
 #       "zotero"
 #       "daisydisk"
+       "zed"
      ];
      masApps = {
        Infuse = 1136220934;
